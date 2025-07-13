@@ -283,3 +283,20 @@ footer p {
   .vibe-card { padding: 1.2rem 0.7rem; }
   .cta-links { flex-direction: column; gap: 0.7rem; }
 }
+@media (max-width: 600px) {
+  .vibe-navbar,
+  header {
+    position: static !important;
+    top: auto !important;
+    border-radius: 0 0 var(--radius) var(--radius);
+  }
+}
+@media (max-width: 600px) {
+  .vibe-navbar {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.95rem;
+  }
+  .logo {
+    font-size: 1.1rem;
+  }
+}
