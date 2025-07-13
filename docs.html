@@ -1,132 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>P3 Lending Documentation</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="space-background"></div>
+  <div class="vibe-bg"></div>
   <div class="stars"></div>
-  <main class="docs-main">
-    <div class="logo" style="margin-top:2rem;">
+  <nav class="vibe-navbar">
+    <div class="logo">
       <span class="bracket-left">[</span>
       <span class="p-letter">P</span>
       <span class="subscript">3</span>
       <span class="bracket-right">]</span>
       <span class="company-name">Lending</span>
     </div>
-    <h1>P3 Lending Platform Documentation</h1>
-
-    <section>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="docs.html" class="active">Docs</a></li>
+      <li><a href="mailto:investors@p3lending.com">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="docs vibe-fadein">
+    <section class="vibe-card">
       <h2>Key Features</h2>
       <ul>
-        <li><b>Decentralization:</b> No central authority, all transactions on blockchain.</li>
-        <li><b>Peer-to-Peer Lending:</b> Direct borrower-lender connections, no bank fees.</li>
+        <li><b>Decentralized:</b> All transactions on blockchain, no central authority.</li>
+        <li><b>Peer-to-Peer:</b> Direct borrower-lender connections, no bank fees.</li>
         <li><b>Reputation System:</b> On-chain, tamper-proof, based on transaction history.</li>
-        <li><b>Bitcoin as Central Currency:</b> Global, liquid, borderless.</li>
+        <li><b>Bitcoin at Core:</b> Global, liquid, borderless.</li>
         <li><b>Smart Contracts:</b> Automated, transparent, enforceable agreements.</li>
       </ul>
     </section>
-
-    <section>
-      <h2>Platform Workflow</h2>
-      <ol>
-        <li><b>User Onboarding:</b> Decentralized identity, optional verification.</li>
-        <li><b>Reputation Building:</b> Every transaction updates user’s score.</li>
-        <li><b>Loan Creation:</b> Borrowers specify terms, lenders review and fund.</li>
-        <li><b>Smart Contract Execution:</b> Funds locked and released automatically.</li>
-        <li><b>Repayment & Reputation Update:</b> On-time repayment boosts score, defaults reduce it.</li>
-      </ol>
-    </section>
-
-    <section>
+    <section class="vibe-card">
       <h2>Market Opportunity</h2>
-      <canvas id="marketChart" width="400" height="220"></canvas>
+      <canvas id="marketChart" height="180"></canvas>
       <script>
-        const ctx = document.getElementById('marketChart').getContext('2d');
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'],
-            datasets: [{
-              label: 'Global P2P Lending Market ($B)',
-              data: [200, 280, 390, 540, 700, 870, 1050, 1180, 1200],
-              backgroundColor: 'rgba(78,205,196,0.7)',
-              borderColor: 'rgba(78,205,196,1)',
-              borderWidth: 2
-            }]
-          },
-          options: {
-            plugins: { legend: { display: false } },
-            scales: {
-              y: { beginAtZero: true, ticks: { color: '#fff' }, grid: { color: '#333' } },
-              x: { ticks: { color: '#fff' }, grid: { color: '#333' } }
+        window.addEventListener('DOMContentLoaded', () => {
+          new Chart(document.getElementById('marketChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+              labels: ['2022','2023','2024','2025','2026','2027','2028','2029','2030'],
+              datasets: [{
+                label: 'Global P2P Lending Market ($B)',
+                data: [200, 280, 390, 540, 700, 870, 1050, 1180, 1200],
+                backgroundColor: 'rgba(78,205,196,0.7)',
+                borderRadius: 12,
+              }]
+            },
+            options: {
+              plugins: { legend: { display: false } },
+              scales: {
+                y: { beginAtZero: true, ticks: { color: '#fff' }, grid: { color: '#333' } },
+                x: { ticks: { color: '#fff' }, grid: { color: '#333' } }
+              }
             }
-          }
+          });
         });
       </script>
       <p class="tagline">The global P2P lending market is projected to reach <b>$1.2 trillion</b> by 2030, growing at 28.8% CAGR.</p>
     </section>
-
-    <section>
+    <section class="vibe-card">
       <h2>Platform Growth (Mock Data)</h2>
-      <canvas id="growthChart" width="400" height="220"></canvas>
+      <canvas id="growthChart" height="180"></canvas>
       <script>
-        const ctx2 = document.getElementById('growthChart').getContext('2d');
-        new Chart(ctx2, {
-          type: 'line',
-          data: {
-            labels: ['Q1-2024', 'Q2-2024', 'Q3-2024', 'Q4-2024', 'Q1-2025', 'Q2-2025'],
-            datasets: [{
-              label: 'Active Users',
-              data: [200, 800, 2100, 4000, 8000, 15000],
-              borderColor: '#ff6b9d',
-              backgroundColor: 'rgba(255,107,157,0.2)',
-              tension: 0.3
-            }, {
-              label: 'Total BTC Lent',
-              data: [10, 40, 120, 300, 800, 2000],
-              borderColor: '#4ecdc4',
-              backgroundColor: 'rgba(78,205,196,0.1)',
-              tension: 0.3
-            }]
-          },
-          options: {
-            plugins: { legend: { labels: { color: '#fff' } } },
-            scales: {
-              y: { beginAtZero: true, ticks: { color: '#fff' }, grid: { color: '#222' } },
-              x: { ticks: { color: '#fff' }, grid: { color: '#222' } }
+        window.addEventListener('DOMContentLoaded', () => {
+          new Chart(document.getElementById('growthChart').getContext('2d'), {
+            type: 'line',
+            data: {
+              labels: ['Q1-2024', 'Q2-2024', 'Q3-2024', 'Q4-2024', 'Q1-2025', 'Q2-2025'],
+              datasets: [{
+                label: 'Active Users',
+                data: [200, 800, 2100, 4000, 8000, 15000],
+                borderColor: '#ff6b9d',
+                backgroundColor: 'rgba(255,107,157,0.05)',
+                tension: 0.4,
+                pointRadius: 4
+              }, {
+                label: 'Total BTC Lent',
+                data: [10, 40, 120, 300, 800, 2000],
+                borderColor: '#4ecdc4',
+                backgroundColor: 'rgba(78,205,196,0.05)',
+                tension: 0.4,
+                pointRadius: 4
+              }]
+            },
+            options: {
+              plugins: { legend: { labels: { color: '#fff' } } },
+              scales: {
+                y: { beginAtZero: true, ticks: { color: '#fff' }, grid: { color: '#222' } },
+                x: { ticks: { color: '#fff' }, grid: { color: '#222' } }
+              }
             }
-          }
+          });
         });
       </script>
       <p class="tagline">Rapid user adoption and lending growth projected post-launch.</p>
     </section>
-
-    <section>
+    <section class="vibe-card">
       <h2>Advantages</h2>
       <ul>
-        <li><b>Trustless Environment:</b> No need for personal trust, blockchain and reputation scores provide security.</li>
+        <li><b>Trustless Environment:</b> Blockchain and reputation scores provide security.</li>
         <li><b>Global Participation:</b> Anyone with Bitcoin can join.</li>
         <li><b>Lower Costs:</b> No intermediaries, reduced fees.</li>
         <li><b>Transparency:</b> All transactions are publicly auditable.</li>
       </ul>
     </section>
-
-    <section>
-      <h2>Potential Enhancements</h2>
-      <ul>
-        <li>Integration with DeFi protocols for more liquidity.</li>
-        <li>Cross-chain compatibility for other cryptocurrencies.</li>
-        <li>Advanced reputation algorithms.</li>
-        <li>Mobile application for global access.</li>
-      </ul>
-    </section>
-
-    <div style="margin:2.5rem 0 1rem;text-align:center;">
+    <div class="docs-links">
       <a class="cta-btn" href="mailto:investors@p3lending.com">Contact Investor Relations</a>
       <a class="docs-link" href="index.html">Back to Home</a>
     </div>
