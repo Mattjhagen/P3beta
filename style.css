@@ -194,3 +194,29 @@ footer {
   .hero h1 { font-size: 1.2rem; }
   .vibe-card { padding: 1.2rem 0.7rem; }
 }
+.faq-group h3 {
+  margin-top: 1.5rem;
+  color: var(--accent-cyan);
+  font-size: 1.14rem;
+}
+.faq-group p, .faq-group ul, .faq-group ol {
+  color: var(--text-muted);
+  font-size: 1.07rem;
+  margin: 0.3rem 0 0.8rem 0;
+}
+.blog-post {
+  margin-bottom: 2.2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.blog-post:last-child { border-bottom: none; }
+.blog-post h3 {
+  color: var(--accent-pink);
+  margin-bottom: 0.2rem;
+  font-size: 1.18rem;
+}
+.blog-date {
+  color: var(--accent-cyan);
+  font-size: 0.98rem;
+  margin-bottom: 0.4rem;
+}
