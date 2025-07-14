@@ -1,16 +1,16 @@
 :root {
-  --accent-blue: #294B93;      /* Deep blue for trust */
-  --accent-bluegray: #6699cc;  /* Blue-gray for calm, loyalty */
-  --accent-gray: #BDBDBD;      /* Light gray for contrast */
-  --accent-darkgray: #4C4C4C;  /* Dark gray for depth */
-  --background: #0a0a0a;
-  --background-gradient: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  --accent-cyan: #24d1c4;
+  --accent-pink: #ff6b9d;
+  --accent-orange: #ff9900;
+  --background: #232323;
+  --background-gradient: none;
   --text: #fff;
   --text-muted: #cccccc;
-  --card-bg: rgba(25, 25, 25, 0.85);
-  --shadow: 0 8px 32px 0 rgba(41,75,147,0.07);
+  --card-bg: #232323;
+  --shadow: 0 8px 32px 0 rgba(36,209,196,0.07);
   --radius: 1.5rem;
 }
+
 html, body { height: 100%; }
 body {
   min-height: 100vh;
@@ -68,27 +68,48 @@ header {
   top: 0;
   z-index: 10;
   border-radius: 0 0 var(--radius) var(--radius);
-}
 .logo {
   display: flex;
   align-items: flex-end;
-  font-size: 2.2rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  font-family: 'Inter', 'Arial', sans-serif;
+  justify-content: center;
+  font-size: 4rem;
+  font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
 }
-.logo .bracket-left { color: var(--accent-bluegray); font-size: 2.2rem; }
-.logo .p-letter { color: var(--accent-blue); font-size: 1.9rem; margin: 0 0.07em; }
-.logo .subscript { color: var(--accent-gray); font-size: 1.1rem; position: relative; bottom: 0.18em; }
-.logo .bracket-right { color: var(--accent-blue); font-size: 2.2rem; }
-.logo .company-name { color: var(--accent-gray); font-size: 1.2rem; font-weight: 600; margin-left: 0.35rem; }
-.vibe-navbar ul {
-  display: flex;
-  gap: 2.2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.logo .bracket-left {
+  color: var(--accent-pink);
+  font-size: 4rem;
 }
+.logo .p-letter {
+  color: var(--accent-cyan);
+  font-size: 3.3rem;
+  margin: 0 0.15em;
+  font-weight: bold;
+  position: relative;
+}
+.logo .subscript {
+  color: var(--accent-orange);
+  font-size: 1.6rem;
+  font-weight: bold;
+  position: absolute;
+  right: -1.2em;
+  bottom: 0.2em;
+}
+.logo .bracket-right {
+  color: var(--accent-cyan);
+  font-size: 4rem;
+}
+.logo .company-name {
+  color: var(--accent-orange);
+  font-size: 2.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  margin-left: 0.5rem;
+  margin-top: 0.5em;
+}
+
 .vibe-navbar a {
   color: var(--text-muted);
   text-decoration: none;
