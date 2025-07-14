@@ -1,3 +1,5 @@
+/* In your style.css file */
+
 :root {
   --accent-cyan: #19e3e3;
   --accent-pink: #ff6b9d;
@@ -19,23 +21,54 @@ body {
   font-family: 'Inter', Merriweather, sans-serif;
   margin: 0;
   overflow-x: hidden;
-  display: center;
-  flex-direction: justify;
+  display: flex; /* Corrected for overall page layout */
+  flex-direction: column; /* Corrected for overall page layout */
 }
+
+/* Header Styles */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--header-height);
   background: var(--card-bg);
   z-index: 100;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 8px rgba(25, 227, 227.08);
+  display: flex; /* Makes logo and nav flex items */
+  align-items: center; /* Vertically centers logo and nav */
+  box-shadow: 0 2px 8px rgba(25, 227, 227, 0.08); /* Corrected syntax */
   border-radius: 0 0 var(--radius) var(--radius);
   padding: 0 2rem;
-  justify-content: space-between;
+  justify-content: space-between; /* Pushes logo left, nav right */
+  flex-wrap: nowrap; /* Prevents logo and nav from wrapping onto new lines */
 }
 
+/* New/Updated CSS for your Logo structure */
+.logo {
+    display: flex; /* Makes P3 and Investing align horizontally */
+    align-items: baseline; /* Aligns them nicely along their text baseline */
+    flex-shrink: 0; /* Prevents the logo from shrinking if space is tight */
+}
+
+.logo-p3 {
+    font-size: 40px; /* Adjust as needed, was 68px in your original inline style which might be too big */
+    color: #5DE794;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+}
+
+.logo-sub {
+    color: #FF5B77;
+    font-size: 60%;
+    vertical-align: baseline;
+}
+
+.logo-text {
+    color: var(--text); /* Assuming this should be white/text color */
+    font-size: 1.2rem; /* Adjust size for "Investing" */
+    margin-left: 0.5rem; /* Space between P3 and Investing */
+    line-height: 1;
+}
+
+/* Navigation Styles */
 nav ul {
   display: flex;
   gap: 2rem;
@@ -56,98 +89,17 @@ nav a.active, nav a:hover {
   color: var(--accent-cyan);
   background: rgba(25,227,227,0.10);
 }
+
+/* Main content padding adjustment for fixed header */
 .main-content {
   padding-top: calc(var(--header-height) + 40px);
   padding-bottom: calc(var(--footer-height) + 40px);
   max-width: 1100px;
   margin: 0 auto;
-  width: 100vw;
+  width: 100%; /* Changed from 100vw to prevent horizontal scroll issues */
 }
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 3rem;
-  margin-top: 2rem;
-}
-.hero h1 {
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: var(--accent-cyan);
-  margin-bottom: 1.2rem;
-  line-height: 1.2;
-}
-.hero p {
-  color: var(--text-muted);
-  font-size: 1.2rem;
-  max-width: 500px;
-  margin: 0 auto 2.5rem;
-  line-height: 1.6;
-}
-.cta-links {
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-.cta-btn {
-  background-color: #FF5B77;
-  color: #fff;
-  padding: 1rem 2.5rem;
-  border-radius: 2rem;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1.1rem;
-  box-shadow: 0 8px 32px 0 rgba(25,227,227,0.07);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3 ease;
-  display: inline-block;
-  letter-spacing: 0.02em;
-}
-.cta-btn:hover, .cta-btn:focus {
-  background: linear-gradient(90deg, #FF5B77, #E64C66 80%);
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 16px 48px 0 rgba(255, 91, 119, 0.18);
-  outline: none; /* remove default focus outline */
-}
-.features-grid {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-.vibe-card {
-  background: var(--card-bg);
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 32px 0 rgba(25, 227, 227, 0.12);
-  padding: 2.5rem 2rem;
-  margin: 1.5rem 0;
-  min-width: 270px;
-  max-width: 350px;
-  flex: 1 1 300px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.vibe-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 16px 48px 0 rgba(25, 227, 227, 0.18);
-}
-.vibe-card h2 {
-  color: var(--accent-cyan);
-  font-size: 1.5rem;
-  margin-bottom: 1.1rem;
-}
-.vibe-card p {
-  color: var(--text-muted);
-  font-size: 1.07rem;
-  margin: 0.5rem 0 0 0;
-}
+
+/* Footer styles (minor border-radius correction for fixed footer) */
 footer {
   position: fixed;
   bottom: 0; left: 0; right: 0;
@@ -160,25 +112,13 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 0 0 var(--radius) var(--radius);
+  border-radius: var(--radius) var(--radius) 0 0; /* Rounds top corners for fixed footer */
   font-size: 0.98rem;
   box-shadow: 0 -4px 24px 0 rgba(41,75,147,0.03);
   padding: 0 1rem;
 }
-.footer-nav {
-  margin-bottom: 0.2rem;
-}
-.footer-nav a {
-  color: var(--accent-cyan);
-  margin: 0 0.7em;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.footer-nav a:hover {
-  color: var(--accent-orange);
-  text-decoration: underline;
-}
+
+/* Media Queries for responsiveness */
 @media (max-width: 900px) {
   .features-grid {
     flex-direction: column;
@@ -196,6 +136,183 @@ footer {
     height: 54px;
     padding: 0 0.7rem;
     font-size: 0.95rem;
+  }
+  .logo-p3 {
+    font-size: 28px; /* Make logo smaller on small screens */
+  }
+  .logo-text {
+    font-size: 0.9rem; /* Make "Investing" smaller */
+  }
+  nav ul {
+    gap: 1rem; /* Reduce gap between nav items */
+  }
+  nav a {
+    font-size: 0.9rem; /* Make nav links smaller */
+    padding: 0.2rem 0.5rem;
+  }
+  .main-content {
+    padding-top: 68px;
+    padding-bottom: 68px;
+  }
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+  .cta-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+/* In your style.css file */
+
+:root {
+  --accent-cyan: #19e3e3;
+  --accent-pink: #ff6b9d;
+  --accent-orange: #ff9900;
+  --background-dark: #23242a;
+  --card-bg: #181c23;
+  --text: #fff;
+  --text-muted: #447ba6;
+  --radius: 1.5rem;
+  --header-height: 70px;
+  --footer-height: 70px;
+  --shadow: 0 16px 32px 5 rgba(25, 227, 227, 0.09);
+}
+html, body { height: 100%; margin: 0; padding: 0; }
+body {
+  min-height: 100vh;
+  background: var(--background-dark);
+  color: var(--text);
+  font-family: 'Inter', Merriweather, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  display: flex; /* Corrected for overall page layout */
+  flex-direction: column; /* Corrected for overall page layout */
+}
+
+/* Header Styles */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-height);
+  background: var(--card-bg);
+  z-index: 100;
+  display: flex; /* Makes logo and nav flex items */
+  align-items: center; /* Vertically centers logo and nav */
+  box-shadow: 0 2px 8px rgba(25, 227, 227, 0.08); /* Corrected syntax */
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 0 2rem;
+  justify-content: space-between; /* Pushes logo left, nav right */
+  flex-wrap: nowrap; /* Prevents logo and nav from wrapping onto new lines */
+}
+
+/* New/Updated CSS for your Logo structure */
+.logo {
+    display: flex; /* Makes P3 and Investing align horizontally */
+    align-items: baseline; /* Aligns them nicely along their text baseline */
+    flex-shrink: 0; /* Prevents the logo from shrinking if space is tight */
+}
+
+.logo-p3 {
+    font-size: 40px; /* Adjust as needed, was 68px in your original inline style which might be too big */
+    color: #5DE794;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+}
+
+.logo-sub {
+    color: #FF5B77;
+    font-size: 60%;
+    vertical-align: baseline;
+}
+
+.logo-text {
+    color: var(--text); /* Assuming this should be white/text color */
+    font-size: 1.2rem; /* Adjust size for "Investing" */
+    margin-left: 0.5rem; /* Space between P3 and Investing */
+    line-height: 1;
+}
+
+/* Navigation Styles */
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.7rem;
+  transition: background 0.2s, color 0.2s;
+}
+nav a.active, nav a:hover {
+  color: var(--accent-cyan);
+  background: rgba(25,227,227,0.10);
+}
+
+/* Main content padding adjustment for fixed header */
+.main-content {
+  padding-top: calc(var(--header-height) + 40px);
+  padding-bottom: calc(var(--footer-height) + 40px);
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%; /* Changed from 100vw to prevent horizontal scroll issues */
+}
+
+/* Footer styles (minor border-radius correction for fixed footer) */
+footer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: var(--footer-height);
+  background: var(--card-bg);
+  z-index: 100;
+  text-align: center;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius) var(--radius) 0 0; /* Rounds top corners for fixed footer */
+  font-size: 0.98rem;
+  box-shadow: 0 -4px 24px 0 rgba(41,75,147,0.03);
+  padding: 0 1rem;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 900px) {
+  .features-grid {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+  }
+  .vibe-card {
+    max-width: 90vw;
+    min-width: 220px;
+    margin: 1rem 0;
+  }
+}
+@media (max-width: 600px) {
+  header, footer {
+    height: 54px;
+    padding: 0 0.7rem;
+    font-size: 0.95rem;
+  }
+  .logo-p3 {
+    font-size: 28px; /* Make logo smaller on small screens */
+  }
+  .logo-text {
+    font-size: 0.9rem; /* Make "Investing" smaller */
+  }
+  nav ul {
+    gap: 1rem; /* Reduce gap between nav items */
+  }
+  nav a {
+    font-size: 0.9rem; /* Make nav links smaller */
+    padding: 0.2rem 0.5rem;
   }
   .main-content {
     padding-top: 68px;
