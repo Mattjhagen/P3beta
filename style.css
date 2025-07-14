@@ -1,15 +1,19 @@
-
 :root {
   --accent-cyan: #19e3e3;        /* Cyan for right bracket and P */
   --accent-pink: #ff6b9d;        /* Pink for left bracket */
   --accent-orange: #ff9900;      /* Orange for subscript and Lending */
   --background-dark: #333333;    /* For background to match image */
+  --text: #fff;
+  --text-muted: #cccccc;
+  --radius: 1.5rem;
+  --header-height: 70px;
+  --footer-height: 70px;
 }
 
-html, body { height: 100%; }
+/* Reset and base styles */
+html, body { height: 100%; margin: 0; padding: 0; }
 body {
   min-height: 100vh;
-  body {
   background: var(--background-dark);
   color: var(--text);
   font-family: 'Inter', 'Arial', sans-serif;
@@ -18,266 +22,120 @@ body {
   display: flex;
   flex-direction: column;
 }
-.vibe-bg {
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  background: var(--background-gradient);
-  z-index: -2;
-  animation: bgmove 12s linear infinite alternate;
-}
-@keyframes bgmove {
-  0% { background-position: 0 0; }
-  100% { background-position: 100% 100%; }
-}
-.stars {
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  pointer-events: none;
-  z-index: -1;
-}
-.stars::before {
-  content: '';
-  display: block;
-  width: 100vw; height: 100vh;
-  background: url('image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.7"/><circle cx="80" cy="20" r="1" fill="white" opacity="0.5"/><circle cx="50" cy="70" r="1.2" fill="white" opacity="0.6"/></svg>');
-  opacity: 0.3;
 
-.vibe-navbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.2rem 2.5rem;
-  background: rgba(10,10,10,0.92);
-  box-shadow: var(--shadow);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  border-radius: 0 0 var(--radius) var(--radius);
-  
-.logo .bracket-left {
-  color: var(--accent-pink) !important;
-}
-.logo .p-letter {
-  color: var(--accent-cyan) !important;
-}
-.logo .subscript {
-  color: var(--accent-orange) !important;
-}
-.logo .bracket-right {
-  color: var(--accent-cyan) !important;
-}
-.logo .company-name {
-  color: var(--accent-orange) !important;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-
-.vibe-navbar a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 0.7rem;
-  transition: background 0.2s, color 0.2s;
-}
-.vibe-navbar a.active,
-.vibe-navbar a:hover {
-  color: var(--accent-bluegray);
-  background: rgba(102,153,204,0.10);
-}
-
-/* HERO SECTION */
-.hero, .docs {
-  min-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 1rem 2rem;
-}
-.hero h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--accent-bluegray);
-  margin-bottom: 1.2rem;
-  line-height: 1.2;
-  text-shadow: 0 2px 16px rgba(102,153,204,0.07);
-}
-.tagline {
-  color: var(--text-muted);
-  font-size: 1.15rem;
-  max-width: 500px;
-  margin: 0 auto 2.5rem;
-  line-height: 1.6;
-}
-
-/* CTA BUTTONS - BLUE/GRAY THEME */
-.cta-links {
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.cta-btn {
-  background: linear-gradient(90deg, var(--accent-blue), var(--accent-bluegray) 80%);
-  color: #fff;
-  padding: 1rem 2.5rem;
-  border-radius: 2rem;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1.1rem;
-  box-shadow: var(--shadow);
-  border: none;
-  transition: background 0.3s, color 0.3s, transform 0.2s;
-  display: inline-block;
-  letter-spacing: 0.02em;
-}
-.cta-btn:hover, .cta-btn:focus {
-  background: linear-gradient(90deg, var(--accent-bluegray), var(--accent-gray) 80%);
-  color: #222;
-  transform: translateY(-2px) scale(1.03);
-  outline: none;
-}
-.cta-btn.secondary {
-  background: linear-gradient(90deg, var(--accent-gray), var(--accent-darkgray) 80%);
-  color: var(--accent-blue);
-}
-.cta-btn.secondary:hover, .cta-btn.secondary:focus {
-  background: linear-gradient(90deg, var(--accent-bluegray), var(--accent-blue) 80%);
-  color: #fff;
-}
-
-/* DOCS LINK */
-.docs-link {
-  color: var(--accent-bluegray);
-  text-decoration: underline;
-  font-size: 1rem;
-  margin-top: 0.3rem;
-  transition: color 0.3s;
-}
-.docs-link:hover { color: var(--accent-gray);}
-.vibe-card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 2.5rem 2rem;
-  margin: 2.2rem 0;
-  max-width: 700px;
-  width: 100%;
-  text-align: left;
-  border: 1px solid rgba(255,255,255,0.07);
-  animation: fadein 0.9s cubic-bezier(.39,.575,.565,1.000) both;
-}
-.vibe-card h2 {
-  color: var(--accent-bluegray);
-  font-size: 1.5rem;
-  margin-bottom: 1.1rem;
-}
-.vibe-card ul, .vibe-card ol {
-  margin: 1rem 0 0 1.1rem;
-  color: var(--text-muted);
-  font-size: 1.07rem;
-}
-.vibe-card .tagline {
-  margin: 1.2rem 0 0 0;
-  font-size: 1rem;
-}
-.docs-links {
-  margin: 2.5rem 0 1rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
+/* Fixed header */
 header, .vibe-navbar {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0; right: 0;
   width: 100vw;
-  z-index: 100;
+  height: var(--header-height);
   background: #222;
-  height: 70px;
+  z-index: 100;
   display: flex;
   align-items: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 0 2rem;
 }
 
+/* Fixed footer */
 footer {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 0; left: 0; right: 0;
   width: 100vw;
-  z-index: 100;
+  height: var(--footer-height);
   background: #222;
+  z-index: 100;
+  text-align: center;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 0 0 var(--radius) var(--radius);
   font-size: 0.98rem;
   box-shadow: 0 -4px 24px 0 rgba(41,75,147,0.03);
-  padding: 1.2rem 0;
+  padding: 0 1rem;
 }
 
+/* Main content spacing */
 .main-content, .hero, .docs {
-  padding-top: 90px;   /* header height + some space */
-  padding-bottom: 90px; /* footer height + some space */
+  padding-top: calc(var(--header-height) + 24px);
+  padding-bottom: calc(var(--footer-height) + 24px);
+  min-height: 60vh;
 }
 
-
-/* ANIMATIONS */
-.vibe-fadein { animation: fadein 1s cubic-bezier(.39,.575,.565,1.000) both; }
-@keyframes fadein {
-  0% { opacity: 0; transform: translateY(40px);}
-  100% { opacity: 1; transform: translateY(0);}
+/* Logo styling to match your image */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0 1.5rem 0;
+}
+.logo-symbol {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 5rem;
+  font-weight: 700;
+}
+.logo .bracket-left {
+  color: var(--accent-pink);
+  font-size: 5rem;
+}
+.logo .p-letter {
+  color: var(--accent-cyan);
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0 0.1em;
+  position: relative;
+}
+.logo .subscript {
+  color: var(--accent-orange);
+  font-size: 2rem;
+  font-weight: 700;
+  position: absolute;
+  right: -1.2em;
+  bottom: 0.2em;
+}
+.logo .bracket-right {
+  color: var(--accent-cyan);
+  font-size: 5rem;
+}
+.logo .company-name {
+  color: var(--accent-orange);
+  font-size: 2.7rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  margin-top: 0.8rem;
+  letter-spacing: 0.04em;
 }
 
-/* FAQ & BLOG */
-.faq-group h3 {
-  margin-top: 1.5rem;
-  color: var(--accent-bluegray);
-  font-size: 1.14rem;
-}
-.faq-group p, .faq-group ul, .faq-group ol {
-  color: var(--text-muted);
-  font-size: 1.07rem;
-  margin: 0.3rem 0 0.8rem 0;
-}
-.blog-post {
-  margin-bottom: 2.2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-.blog-post:last-child { border-bottom: none; }
-.blog-post h3 {
-  color: var(--accent-blue);
-  margin-bottom: 0.2rem;
-  font-size: 1.18rem;
-}
-.blog-date {
-  color: var(--accent-bluegray);
-  font-size: 0.98rem;
-  margin-bottom: 0.4rem;
-}
-
-/* MOBILE RESPONSIVENESS */
+/* Responsive adjustments */
 @media (max-width: 600px) {
   header, .vibe-navbar, footer {
     height: 54px;
-    padding: 0.5rem 0.7rem;
+    padding: 0 0.7rem;
     font-size: 0.95rem;
   }
   .main-content, .hero, .docs {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 68px;
+    padding-bottom: 68px;
   }
-  {
-  <div class="logo">
-  <span class="bracket-left">(</span>
-  <span class="p-letter">P</span>
-  <span class="subscript">3</span>
-  <span class="bracket-right">)</span>
-  <div class="company-name">Lending</div>
-</div>
+  .logo-symbol {
+    font-size: 2.7rem;
+  }
+  .logo .bracket-left, .logo .bracket-right {
+    font-size: 2.7rem;
+  }
+  .logo .p-letter {
+    font-size: 1.8rem;
+  }
+  .logo .subscript {
+    font-size: 1rem;
+    right: -0.7em;
+    bottom: 0.1em;
+  }
+  .logo .company-name {
+    font-size: 1.2rem;
+  }
 }
