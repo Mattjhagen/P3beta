@@ -16,10 +16,10 @@ body {
   min-height: 100vh;
   background: var(--background-dark);
   color: var(--text);
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', Merriweather, sans-serif;
   margin: 0;
   overflow-x: hidden;
-  display: flex;
+  display: center;
   flex-direction: column;
 }
 header {
@@ -29,7 +29,7 @@ header {
   background: var(--card-bg);
   z-index: 100;
   display: flex;
-  align-items: center;
+  align-items: left;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   border-radius: 0 0 var(--radius) var(--radius);
   padding: 0 2rem;
@@ -98,7 +98,7 @@ nav a.active, nav a:hover {
   margin-bottom: 2rem;
 }
 .cta-btn {
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink) 80%);
+  background-color: #FF5B77;
   color: #fff;
   padding: 1rem 2.5rem;
   border-radius: 2rem;
@@ -107,7 +107,8 @@ nav a.active, nav a:hover {
   font-size: 1.1rem;
   box-shadow: 0 8px 32px 0 rgba(25,227,227,0.07);
   border: none;
-  transition: background 0.3s, color 0.3s, transform 0.2s;
+  cursor: pointer;
+  transition: all 0.3 ease;
   display: inline-block;
   letter-spacing: 0.02em;
 }
