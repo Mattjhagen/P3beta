@@ -90,13 +90,97 @@ nav a.active, nav a:hover {
   background: rgba(25,227,227,0.10);
 }
 
-/* Main content padding adjustment for fixed header */
 .main-content {
   padding-top: calc(var(--header-height) + 40px);
   padding-bottom: calc(var(--footer-height) + 40px);
   max-width: 1100px;
   margin: 0 auto;
-  width: 100%; /* Changed from 100vw to prevent horizontal scroll issues */
+  width: 100vw;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+.hero p {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+.cta-links {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.cta-btn {
+  background-color: #FF5B77;
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 32px 0 rgba(25,227,227,0.07);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3 ease;
+  display: inline-block;
+  letter-spacing: 0.02em;
+}
+.cta-btn:hover, .cta-btn:focus {
+  background: linear-gradient(90deg, #FF5B77, #E64C66 80%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 16px 48px 0 rgba(255, 91, 119, 0.18);
+  outline: none; /* remove default focus outline */
+}
+.features-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.vibe-card {
+  background: var(--card-bg);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(25, 227, 227, 0.12);
+  padding: 2.5rem 2rem;
+  margin: 1.5rem 0;
+  min-width: 270px;
+  max-width: 350px;
+  flex: 1 1 300px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.vibe-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 48px 0 rgba(25, 227, 227, 0.18);
+}
+.vibe-card h2 {
+  color: var(--accent-cyan);
+  font-size: 1.5rem;
+  margin-bottom: 1.1rem;
+}
+.vibe-card p {
+  color: var(--text-muted);
+  font-size: 1.07rem;
+  margin: 0.5rem 0 0 0;
 }
 
 /* Footer styles (minor border-radius correction for fixed footer) */
