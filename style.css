@@ -36,10 +36,10 @@ header {
   justify-content: space-between;
 }
 .logo-navbar {
-  font-size: 1.7rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--accent-cyan);
+  <span style=fontsize: 40px; color: #5DE794;
+  font-family: Arial, sans-serif;">
+  P<sub style="color: #FF5B77; font-size: 60%;">3</sub>
+  </span>
 }
 nav ul {
   display: flex;
