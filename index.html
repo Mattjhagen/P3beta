@@ -1,113 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>P3 Lending – AI-Driven P2P Blockchain Investing</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>P3 Investor Platform</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent-cyan: #19e3e3;
+      --accent-pink: #ff6b9d;
+      --accent-orange: #ff9900;
+      --background-dark: #23242a;
+      --card-bg: #181c23;
+      --text: #fff;
+      --text-muted: #cccccc;
+      --radius: 1.5rem;
+      --header-height: 70px;
+      --footer-height: 70px;
+      --shadow: 0 8px 32px 0 rgba(25, 227, 227, 0.09);
+    }
+    html, body { height: 100%; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: var(--background-dark);
+      color: var(--text);
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-height);
+      background: var(--card-bg);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-radius: 0 0 var(--radius) var(--radius);
+      padding: 0 2rem;
+      justify-content: space-between;
+    }
+    .logo-navbar {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--accent-cyan);
+    }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.7rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a.active, nav a:hover {
+      color: var(--accent-cyan);
+      background: rgba(25,227,227,0.10);
+    }
+    .main-content {
+      padding-top: calc(var(--header-height) + 40px);
+      padding-bottom: calc(var(--footer-height) + 40px);
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100vw;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3rem;
+      margin-top: 2rem;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+    .cta-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .cta-btn {
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink) 80%);
+      color: #fff;
+      padding: 1rem 2.5rem;
+      border-radius: 2rem;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 8px 32px 0 rgba(25,227,227,0.07);
+      border: none;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+      display: inline-block;
+      letter-spacing: 0.02em;
+    }
+    .cta-btn:hover, .cta-btn:focus {
+      background: linear-gradient(90deg, var(--accent-pink), var(--accent-orange) 80%);
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 16px 48px 0 rgba(255,155,157,0.18);
+    }
+    .features-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .vibe-card {
+      background: var(--card-bg);
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px 0 rgba(25, 227, 227, 0.12);
+      padding: 2.5rem 2rem;
+      margin: 1.5rem 0;
+      min-width: 270px;
+      max-width: 350px;
+      flex: 1 1 300px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .vibe-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 16px 48px 0 rgba(25, 227, 227, 0.18);
+    }
+    .vibe-card h2 {
+      color: var(--accent-cyan);
+      font-size: 1.5rem;
+      margin-bottom: 1.1rem;
+    }
+    .vibe-card p {
+      color: var(--text-muted);
+      font-size: 1.07rem;
+      margin: 0.5rem 0 0 0;
+    }
+    footer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: var(--footer-height);
+      background: var(--card-bg);
+      z-index: 100;
+      text-align: center;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 0 var(--radius) var(--radius);
+      font-size: 0.98rem;
+      box-shadow: 0 -4px 24px 0 rgba(41,75,147,0.03);
+      padding: 0 1rem;
+    }
+    .footer-nav {
+      margin-bottom: 0.2rem;
+    }
+    .footer-nav a {
+      color: var(--accent-cyan);
+      margin: 0 0.7em;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover {
+      color: var(--accent-orange);
+      text-decoration: underline;
+    }
+    @media (max-width: 900px) {
+      .features-grid {
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: center;
+      }
+      .vibe-card {
+        max-width: 90vw;
+        min-width: 220px;
+        margin: 1rem 0;
+      }
+    }
+    @media (max-width: 600px) {
+      header, footer {
+        height: 54px;
+        padding: 0 0.7rem;
+        font-size: 0.95rem;
+      }
+      .main-content {
+        padding-top: 68px;
+        padding-bottom: 68px;
+      }
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+      .cta-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="vibe-bg"></div>
-  <div class="stars"></div>
-
-  <!-- Header -->
   <header>
-    <nav class="vibe-navbar">
-      <div class="logo-navbar">
-        <span class="bracket-left">(</span>
-        <span class="p-letter">P<span class="subscript">3</span></span>
-        <span class="bracket-right">)</span>
-      </div>
+    <div class="logo-navbar">P3 Investor</div>
+    <nav>
       <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="docs.html">Docs</a></li>
-        <li><a href="ai-insurance.html">AI & Insurance</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Sign In</a></li>
       </ul>
     </nav>
   </header>
-
-  <!-- Main Content -->
   <main class="main-content">
     <section class="hero">
-      <div class="logo-hero">
-        <span class="bracket-left">(</span>
-        <span class="p-letter">P<span class="subscript">3</span></span>
-        <span class="bracket-right">)</span>
-      </div>
-      <div class="company-name">Lending</div>
-      <h1>AI-Driven Peer-to-Peer Blockchain Investing</h1>
-      <p class="tagline">
-        <b>P3 Lending</b> is the next evolution in decentralized finance—combining blockchain transparency, Bitcoin liquidity, and AI-powered auto-investments.<br>
-        Invest in real people, not just numbers, with dynamic risk management, community insurance, and automated portfolio growth.
-      </p>
+      <h1>Invest Smarter with AI</h1>
+      <p>Welcome to P3, your blockchain-powered platform for secure, automated, and intelligent investing.</p>
       <div class="cta-links">
-        <a class="cta-btn" href="ai-insurance.html">How AI & Insurance Work</a>
-        <a class="cta-btn secondary" href="docs.html">Read Platform Docs</a>
+        <a href="#contact" class="cta-btn">Contact</a>
+        <a href="#ai-investing" class="cta-btn">AI-Investing {P3}</a>
       </div>
     </section>
-
-    <!-- Feature Cards -->
     <section class="features-grid">
       <div class="vibe-card">
-        <h2>Why P3 Lending?</h2>
-        <ul>
-          <li><b>AI-driven auto-investments</b> for smarter returns</li>
-          <li><b>Community insurance pool</b> for peace of mind</li>
-          <li><b>Live platform stats</b> and transparent growth</li>
-          <li><b>Earn badges</b> and join a thriving investor community</li>
-        </ul>
+        <h2>Blockchain Security</h2>
+        <p>All transactions are secured using industry-leading blockchain protocols.</p>
       </div>
       <div class="vibe-card">
-        <h2>Live Platform Stats</h2>
-        <canvas id="growthChart" height="120"></canvas>
-        <script>
-        window.addEventListener('DOMContentLoaded', () => {
-          new Chart(document.getElementById('growthChart').getContext('2d'), {
-            type: 'line',
-             {
-              labels: ['Q1-2024', 'Q2-2024', 'Q3-2024', 'Q4-2024', 'Q1-2025', 'Q2-2025'],
-              datasets: [{
-                label: 'Active Users',
-                 [200, 800, 2100, 4000, 8000, 15000],
-                borderColor: '#ff6b9d',
-                backgroundColor: 'rgba(255,107,157,0.05)',
-                tension: 0.4,
-                pointRadius: 4
-              }, {
-                label: 'Total BTC Lent',
-                 [10, 40, 120, 300, 800, 2000],
-                borderColor: '#19e3e3',
-                backgroundColor: 'rgba(25,227,227,0.05)',
-                tension: 0.4,
-                pointRadius: 4
-              }]
-            },
-            options: {
-              plugins: { legend: { labels: { color: '#fff' } } },
-              scales: {
-                y: { beginAtZero: true, ticks: { color: '#fff' }, grid: { color: '#222' } },
-                x: { ticks: { color: '#fff' }, grid: { color: '#222' } }
-              }
-            }
-          });
-        });
-        </script>
+        <h2>AI Portfolio Management</h2>
+        <p>Let advanced AI algorithms optimize your investments automatically.</p>
+      </div>
+      <div class="vibe-card">
+        <h2>Investor-Friendly Tools</h2>
+        <p>Access analytics, insights, and resources designed for both new and seasoned investors.</p>
       </div>
     </section>
   </main>
-
-  <!-- Footer -->
   <footer>
-    <nav class="footer-nav">
-      <a href="faq.html">FAQ</a> |
-      <a href="blog.html">Blog</a> |
-      <a href="updates.html">Updates</a> |
-      <a href="WhitePaper.pdf">Download the Whitepaper</a>
-    </nav>
-    <p>&copy; 2025 PacMac Mobile LLC. All rights reserved. Built with Coffee, Code, and good Vibes.</p>
+    <div class="footer-nav">
+      <a href="#whitepaper">White Paper</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+      <a href="#support">Support</a>
+    </div>
+    <p>&copy; 2025 P3 Investor. All rights reserved.</p>
   </footer>
 </body>
 </html>
