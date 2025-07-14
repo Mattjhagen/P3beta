@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>P3 Lending – The Future of AI-Driven P2P Blockchain Investing</title>
+  <title>P3 Lending – AI-Driven P2P Blockchain Investing</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="vibe-bg"></div>
@@ -13,8 +14,7 @@
   <!-- Header -->
   <header>
     <nav class="vibe-navbar">
-      <!-- Optional: small logo in navbar -->
-      <div class="logo logo-navbar">
+      <div class="logo-navbar">
         <span class="bracket-left">(</span>
         <span class="p-letter">P<span class="subscript">3</span></span>
         <span class="bracket-right">)</span>
@@ -23,27 +23,80 @@
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="docs.html">Docs</a></li>
         <li><a href="ai-insurance.html">AI & Insurance</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="blog.html">Blog</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Main logo and hero content -->
-  <main class="hero vibe-fadein">
-    <div class="logo logo-hero">
-      <span class="bracket-left">(</span>
-      <span class="p-letter">P<span class="subscript">3</span></span>
-      <span class="bracket-right">)</span>
-    </div>
-    <div class="company-name">Lending</div>
-    <h1>AI-Driven Peer-to-Peer Blockchain Investing</h1>
-    <p class="tagline">
-      <b>P3 Lending</b> is the next evolution in decentralized finance—combining blockchain transparency, Bitcoin liquidity, and AI-powered auto-investments. <br>
-      Our platform lets you invest in real people, not just numbers, with dynamic risk management, community insurance, and automated portfolio growth.
-    </p>
-    <div class="cta-links">
-      <a class="cta-btn" href="ai-insurance.html">How AI & Insurance Work</a>
-      <a class="cta-btn" href="docs.html" style="background:#ff6b9d;">Read Platform Docs</a>
-    </div>
+  <!-- Main Content -->
+  <main class="main-content">
+    <section class="hero">
+      <div class="logo-hero">
+        <span class="bracket-left">(</span>
+        <span class="p-letter">P<span class="subscript">3</span></span>
+        <span class="bracket-right">)</span>
+      </div>
+      <div class="company-name">Lending</div>
+      <h1>AI-Driven Peer-to-Peer Blockchain Investing</h1>
+      <p class="tagline">
+        <b>P3 Lending</b> is the next evolution in decentralized finance—combining blockchain transparency, Bitcoin liquidity, and AI-powered auto-investments.<br>
+        Invest in real people, not just numbers, with dynamic risk management, community insurance, and automated portfolio growth.
+      </p>
+      <div class="cta-links">
+        <a class="cta-btn" href="ai-insurance.html">How AI & Insurance Work</a>
+        <a class="cta-btn secondary" href="docs.html">Read Platform Docs</a>
+      </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section class="features-grid">
+      <div class="vibe-card">
+        <h2>Why P3 Lending?</h2>
+        <ul>
+          <li><b>AI-driven auto-investments</b> for smarter returns</li>
+          <li><b>Community insurance pool</b> for peace of mind</li>
+          <li><b>Live platform stats</b> and transparent growth</li>
+          <li><b>Earn badges</b> and join a thriving investor community</li>
+        </ul>
+      </div>
+      <div class="vibe-card">
+        <h2>Live Platform Stats</h2>
+        <canvas id="growthChart" height="120"></canvas>
+        <script>
+        window.addEventListener('DOMContentLoaded', () => {
+          new Chart(document.getElementById('growthChart').getContext('2d'), {
+            type: 'line',
+             {
+              labels: ['Q1-2024', 'Q2-2024', 'Q3-2024', 'Q4-2024', 'Q1-2025', 'Q2-2025'],
+              datasets: [{
+                label: 'Active Users',
+                 [200, 800, 2100, 4000, 8000, 15000],
+                borderColor: '#ff6b9d',
+                backgroundColor: 'rgba(255,107,157,0.05)',
+                tension: 0.4,
+                pointRadius: 4
+              }, {
+                label: 'Total BTC Lent',
+                 [10, 40, 120, 300, 800, 2000],
+                borderColor: '#19e3e3',
+                backgroundColor: 'rgba(25,227,227,0.05)',
+                tension: 0.4,
+                pointRadius: 4
+              }]
+            },
+            options: {
+              plugins: { legend: { labels: { color: '#fff' } } },
+              scales: {
+                y: { beginAtZero: true, ticks: { color: '#fff' }, grid: { color: '#222' } },
+                x: { ticks: { color: '#fff' }, grid: { color: '#222' } }
+              }
+            }
+          });
+        });
+        </script>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
