@@ -5,11 +5,11 @@
   --background-dark: #23242a;
   --card-bg: #181c23;
   --text: #fff;
-  --text-muted: #cccccc;
+  --text-muted: #447ba6;
   --radius: 1.5rem;
   --header-height: 70px;
   --footer-height: 70px;
-  --shadow: 0 8px 32px 0 rgba(25, 227, 227, 0.09);
+  --shadow: 0 16px 32px 5 rgba(25, 227, 227, 0.09);
 }
 html, body { height: 100%; margin: 0; padding: 0; }
 body {
