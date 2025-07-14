@@ -20,7 +20,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   display: center;
-  flex-direction: column;
+  flex-direction: justify;
 }
 header {
   position: fixed;
@@ -113,9 +113,10 @@ nav a.active, nav a:hover {
   letter-spacing: 0.02em;
 }
 .cta-btn:hover, .cta-btn:focus {
-  background: linear-gradient(90deg, var(--accent-pink), var(--accent-orange) 80%);
+  background: linear-gradient(90deg, #FF5B77, #E64C66 80%);
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 16px 48px 0 rgba(255,155,157,0.18);
+  box-shadow: 0 16px 48px 0 rgba(255, 91, 119, 0.18);
+  outline: none; /* remove default focus outline */
 }
 .features-grid {
   display: flex;
