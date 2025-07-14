@@ -1,20 +1,16 @@
+
 :root {
-  --accent-cyan: #24d1c4;
-  --accent-pink: #ff6b9d;
-  --accent-orange: #ff9900;
-  --background: #000;
-  --background-gradient: none;
-  --text: #fff;
-  --text-muted: #cccccc;
-  --card-bg: #232323;
-  --shadow: 0 8px 32px 0 rgba(36,209,196,0.07);
-  --radius: 1.5rem;
+  --accent-cyan: #19e3e3;        /* Cyan for right bracket and P */
+  --accent-pink: #ff6b9d;        /* Pink for left bracket */
+  --accent-orange: #ff9900;      /* Orange for subscript and Lending */
+  --background-dark: #333333;    /* For background to match image */
 }
 
 html, body { height: 100%; }
 body {
   min-height: 100vh;
-  background: var(--background-gradient);
+  body {
+  background: var(--background-dark);
   color: var(--text);
   font-family: 'Inter', 'Arial', sans-serif;
   margin: 0;
@@ -45,15 +41,7 @@ body {
   width: 100vw; height: 100vh;
   background: url('image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.7"/><circle cx="80" cy="20" r="1" fill="white" opacity="0.5"/><circle cx="50" cy="70" r="1.2" fill="white" opacity="0.6"/></svg>');
   opacity: 0.3;
-}
 
-/* HEADER / NAVBAR */
-header {
-  width: 100%;
-  background: #181c23;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  border-radius: 0 0 var(--radius) var(--radius);
-}
 .vibe-navbar {
   width: 100%;
   display: flex;
@@ -68,47 +56,24 @@ header {
   top: 0;
   z-index: 10;
   border-radius: 0 0 var(--radius) var(--radius);
-.logo {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  font-size: 4rem;
-  font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  margin-top: 2rem;
-}
+  
 .logo .bracket-left {
-  color: var(--accent-pink);
-  font-size: 4rem;
+  color: var(--accent-pink) !important;
 }
 .logo .p-letter {
-  color: var(--accent-cyan);
-  font-size: 3.3rem;
-  margin: 0 0.15em;
-  font-weight: bold;
-  position: relative;
+  color: var(--accent-cyan) !important;
 }
 .logo .subscript {
-  color: var(--accent-orange);
-  font-size: 1.6rem;
-  font-weight: bold;
-  position: absolute;
-  right: -1.2em;
-  bottom: 0.2em;
+  color: var(--accent-orange) !important;
 }
 .logo .bracket-right {
-  color: var(--accent-cyan);
-  font-size: 4rem;
+  color: var(--accent-cyan) !important;
 }
 .logo .company-name {
-  color: var(--accent-orange);
-  font-size: 2.5rem;
+  color: var(--accent-orange) !important;
   font-family: 'Courier New', Courier, monospace;
-  font-weight: bold;
-  margin-left: 0.5rem;
-  margin-top: 0.5em;
 }
+
 
 .vibe-navbar a {
   color: var(--text-muted);
@@ -229,37 +194,37 @@ header {
   gap: 1.2rem;
 }
 
-/* FOOTER */
+header, .vibe-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 100;
+  background: #222;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
 footer {
-  background: #181c23;
-  color: var(--text-muted);
-  padding: 2rem 1rem 1rem;
-  text-align: center;
-  margin-top: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 100;
+  background: #222;
   border-radius: 0 0 var(--radius) var(--radius);
   font-size: 0.98rem;
   box-shadow: 0 -4px 24px 0 rgba(41,75,147,0.03);
+  padding: 1.2rem 0;
 }
-.footer-nav {
-  margin-bottom: 0.5rem;
-  display: inline-block;
+
+.main-content, .hero, .docs {
+  padding-top: 90px;   /* header height + some space */
+  padding-bottom: 90px; /* footer height + some space */
 }
-.footer-nav a {
-  color: var(--accent-bluegray);
-  margin: 0 0.7em;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.footer-nav a:hover {
-  color: var(--accent-blue);
-  text-decoration: underline;
-}
-footer p {
-  margin: 0.5rem 0 0 0;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-}
+
 
 /* ANIMATIONS */
 .vibe-fadein { animation: fadein 1s cubic-bezier(.39,.575,.565,1.000) both; }
@@ -298,26 +263,21 @@ footer p {
 
 /* MOBILE RESPONSIVENESS */
 @media (max-width: 600px) {
-  .vibe-navbar { padding: 0.8rem 1.2rem; }
-  .logo { font-size: 1.3rem; }
-  .hero h1 { font-size: 1.2rem; }
-  .vibe-card { padding: 1.2rem 0.7rem; }
-  .cta-links { flex-direction: column; gap: 0.7rem; }
-}
-@media (max-width: 600px) {
-  .vibe-navbar,
-  header {
-    position: static !important;
-    top: auto !important;
-    border-radius: 0 0 var(--radius) var(--radius);
-  }
-}
-@media (max-width: 600px) {
-  .vibe-navbar {
+  header, .vibe-navbar, footer {
+    height: 54px;
     padding: 0.5rem 0.7rem;
     font-size: 0.95rem;
   }
-  .logo {
-    font-size: 1.1rem;
+  .main-content, .hero, .docs {
+    padding-top: 64px;
+    padding-bottom: 64px;
   }
+  {
+  <div class="logo">
+  <span class="bracket-left">(</span>
+  <span class="p-letter">P</span>
+  <span class="subscript">3</span>
+  <span class="bracket-right">)</span>
+  <div class="company-name">Lending</div>
+</div>
 }
