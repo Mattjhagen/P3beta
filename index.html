@@ -1,236 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>P3 Investor Platform</title>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --accent-cyan: #19e3e3;
-      --accent-pink: #ff6b9d;
-      --accent-orange: #ff9900;
-      --background-dark: #23242a;
-      --card-bg: #181c23;
-      --text: #fff;
-      --text-muted: #cccccc;
-      --radius: 1.5rem;
-      --header-height: 70px;
-      --footer-height: 70px;
-      --shadow: 0 8px 32px 0 rgba(25, 227, 227, 0.09);
-    }
-    html, body { height: 100%; margin: 0; padding: 0; }
-    body {
-      min-height: 100vh;
-      background: var(--background-dark);
-      color: var(--text);
-      font-family: 'Inter', Arial, sans-serif;
-      margin: 0;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--header-height);
-      background: var(--card-bg);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      border-radius: 0 0 var(--radius) var(--radius);
-      padding: 0 2rem;
-      justify-content: space-between;
-    }
-    .logo-navbar {
-      font-size: 1.7rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--accent-cyan);
-    }
-    nav ul {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.1rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 0.7rem;
-      transition: background 0.2s, color 0.2s;
-    }
-    nav a.active, nav a:hover {
-      color: var(--accent-cyan);
-      background: rgba(25,227,227,0.10);
-    }
-    .main-content {
-      padding-top: calc(var(--header-height) + 40px);
-      padding-bottom: calc(var(--footer-height) + 40px);
-      max-width: 1100px;
-      margin: 0 auto;
-      width: 100vw;
-    }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      margin-bottom: 3rem;
-      margin-top: 2rem;
-    }
-    .hero h1 {
-      font-size: 2.6rem;
-      font-weight: 700;
-      color: var(--accent-cyan);
-      margin-bottom: 1.2rem;
-      line-height: 1.2;
-    }
-    .hero p {
-      color: var(--text-muted);
-      font-size: 1.2rem;
-      max-width: 500px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.6;
-    }
-    .cta-links {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .cta-btn {
-      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink) 80%);
-      color: #fff;
-      padding: 1rem 2.5rem;
-      border-radius: 2rem;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1.1rem;
-      box-shadow: 0 8px 32px 0 rgba(25,227,227,0.07);
-      border: none;
-      transition: background 0.3s, color 0.3s, transform 0.2s;
-      display: inline-block;
-      letter-spacing: 0.02em;
-    }
-    .cta-btn:hover, .cta-btn:focus {
-      background: linear-gradient(90deg, var(--accent-pink), var(--accent-orange) 80%);
-      transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 16px 48px 0 rgba(255,155,157,0.18);
-    }
-    .features-grid {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .vibe-card {
-      background: var(--card-bg);
-      border-radius: 1.5rem;
-      box-shadow: 0 8px 32px 0 rgba(25, 227, 227, 0.12);
-      padding: 2.5rem 2rem;
-      margin: 1.5rem 0;
-      min-width: 270px;
-      max-width: 350px;
-      flex: 1 1 300px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .vibe-card:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 16px 48px 0 rgba(25, 227, 227, 0.18);
-    }
-    .vibe-card h2 {
-      color: var(--accent-cyan);
-      font-size: 1.5rem;
-      margin-bottom: 1.1rem;
-    }
-    .vibe-card p {
-      color: var(--text-muted);
-      font-size: 1.07rem;
-      margin: 0.5rem 0 0 0;
-    }
-    footer {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      height: var(--footer-height);
-      background: var(--card-bg);
-      z-index: 100;
-      text-align: center;
-      color: var(--text-muted);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-radius: 0 0 var(--radius) var(--radius);
-      font-size: 0.98rem;
-      box-shadow: 0 -4px 24px 0 rgba(41,75,147,0.03);
-      padding: 0 1rem;
-    }
-    .footer-nav {
-      margin-bottom: 0.2rem;
-    }
-    .footer-nav a {
-      color: var(--accent-cyan);
-      margin: 0 0.7em;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .footer-nav a:hover {
-      color: var(--accent-orange);
-      text-decoration: underline;
-    }
-    @media (max-width: 900px) {
-      .features-grid {
-        flex-direction: column;
-        gap: 1.2rem;
-        align-items: center;
-      }
-      .vibe-card {
-        max-width: 90vw;
-        min-width: 220px;
-        margin: 1rem 0;
-      }
-    }
-    @media (max-width: 600px) {
-      header, footer {
-        height: 54px;
-        padding: 0 0.7rem;
-        font-size: 0.95rem;
-      }
-      .main-content {
-        padding-top: 68px;
-        padding-bottom: 68px;
-      }
-      .hero h1 {
-        font-size: 1.4rem;
-      }
-      .cta-btn {
-        padding: 0.7rem 1.2rem;
-        font-size: 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <div class="logo-navbar">P3 Investor</div>
     <nav>
       <ul>
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">Sign In</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="ai-investing.html">AI-Investing {P3}</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="docs.html">Docs</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -239,8 +26,8 @@
       <h1>Invest Smarter with AI</h1>
       <p>Welcome to P3, your blockchain-powered platform for secure, automated, and intelligent investing.</p>
       <div class="cta-links">
-        <a href="#contact" class="cta-btn">Contact</a>
-        <a href="#ai-investing" class="cta-btn">AI-Investing {P3}</a>
+        <a href="contact.html" class="cta-btn">Contact</a>
+        <a href="ai-investing.html" class="cta-btn">AI-Investing {P3}</a>
       </div>
     </section>
     <section class="features-grid">
@@ -260,10 +47,13 @@
   </main>
   <footer>
     <div class="footer-nav">
-      <a href="#whitepaper">White Paper</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#terms">Terms</a>
-      <a href="#support">Support</a>
+      <a href="WhitePaper.pdf" target="_blank">White Paper</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="docs.html">Docs</a>
     </div>
     <p>&copy; 2025 P3 Investor. All rights reserved.</p>
   </footer>
