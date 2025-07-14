@@ -185,21 +185,19 @@ nav a.active, nav a:hover {
 
 /* Footer styles (minor border-radius correction for fixed footer) */
 footer {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  height: var(--footer-height);
+position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-height);
   background: var(--card-bg);
   z-index: 100;
-  text-align: center;
-  color: var(--text-muted);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius) var(--radius) 0 0; /* Rounds top corners for fixed footer */
-  font-size: 0.98rem;
-  box-shadow: 0 -4px 24px 0 rgba(41,75,147,0.03);
-  padding: 0 1rem;
+  display: flex; /* Makes logo and nav flex items */
+  align-items: center; /* Vertically centers logo and nav */
+  box-shadow: 0 2px 8px rgba(25, 227, 227, 0.08); /* Corrected syntax */
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 0 2rem;
+  justify-content: space-between; /* Pushes logo left, nav right */
+  flex-wrap: nowrap; /* Prevents logo and nav from wrapping onto new lines */
+}
 }
 
 /* Media Queries for responsiveness */
